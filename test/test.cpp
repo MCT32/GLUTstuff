@@ -3,7 +3,8 @@
 #include <GL/glu.h>
 #include <GL/glut.h>
 
-void renderScene(void) {
+void renderScene(void)
+{
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
   glBegin(GL_QUADS);
@@ -16,6 +17,25 @@ void renderScene(void) {
   glutSwapBuffers();
 }
 
+void changeSize(int w, int h)
+{
+  if (h == 0)
+  {
+    h = 1;
+  }
+  float ratio = 1.0* w / h;
+
+  glMatrixMode(GL_PROJECTION);
+
+  glLoadIdentity();
+
+  glViewport(0, 0, w, h);
+
+  gluPerspective(45, ratio, 1, 1000);
+
+  glMatrixMode(GL_MODELVIEW);
+}
+
 int main(int argc, char **argv)
 {
   glutInit(&argc, argv);
@@ -25,6 +45,8 @@ int main(int argc, char **argv)
 	glutCreateWindow("GLUT test");
 
   glutDisplayFunc(renderScene);
+
+  glutReshapeFunc(changeSize);
 
   glutMainLoop();
 
