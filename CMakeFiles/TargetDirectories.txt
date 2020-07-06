@@ -1,0 +1,5 @@
+/home/sethh/Desktop/GLUT stuff/CMakeFiles/rebuild_cache.dir
+/home/sethh/Desktop/GLUT stuff/CMakeFiles/edit_cache.dir
+/home/sethh/Desktop/GLUT stuff/test/CMakeFiles/rebuild_cache.dir
+/home/sethh/Desktop/GLUT stuff/test/CMakeFiles/edit_cache.dir
+/home/sethh/Desktop/GLUT stuff/test/CMakeFiles/test.dir
