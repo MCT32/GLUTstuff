@@ -99,6 +99,11 @@ test_EXTERNAL_OBJECTS =
 
 test/test: test/CMakeFiles/test.dir/test.cpp.o
 test/test: test/CMakeFiles/test.dir/build.make
+test/test: /usr/lib/libGL.so
+test/test: /usr/lib/libGLU.so
+test/test: /usr/lib/libglut.so
+test/test: /usr/lib/libXmu.so
+test/test: /usr/lib/libXi.so
 test/test: test/CMakeFiles/test.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/sethh/Desktop/GLUT stuff/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable test"
 	cd "/home/sethh/Desktop/GLUT stuff/test" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test.dir/link.txt --verbose=$(VERBOSE)
