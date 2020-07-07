@@ -13,6 +13,30 @@ void processKeys(unsigned char key, int x, int y)
 {
   if (key == 27)
     exit(0);
+  else if (key=='r')
+  {
+		int mod = glutGetModifiers();
+		if (mod == GLUT_ACTIVE_ALT)
+			red = 0.0;
+		else
+			red = 1.0;
+	}
+  else if (key=='g')
+  {
+		int mod = glutGetModifiers();
+		if (mod == GLUT_ACTIVE_ALT)
+			green = 0.0;
+		else
+			green = 1.0;
+	}
+  else if (key=='b')
+  {
+    int mod = glutGetModifiers();
+    if (mod == GLUT_ACTIVE_ALT)
+      blue = 0.0;
+    else
+      blue = 1.0;
+  }
 }
 
 void processSpecialKeys(int key, int x, int y)
