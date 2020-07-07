@@ -64,19 +64,34 @@ void renderScene(void)
 
   glLoadIdentity();
 
-  //gluLookAt(	0.0f, 0.0f, 10.0f,
-	//			      0.0f, 0.0f,  0.0f,
-	//			      0.0f, 1.0f,  0.0f);
+  gluLookAt(	0.0f, 0.0f, 1.0f,
+				      0.0f, 0.0f, 0.0f,
+				      0.0f, 1.0f, 0.0f);
 
-  glRotatef(angle, 0.0f, 0.0f, 1.0f);
+  glLightModeli(GL_LIGHT_MODEL_LOCAL_VIEWER, GL_TRUE);
+  glEnable(GL_LIGHTING);
+  glEnable(GL_LIGHT0);
+
+  GLfloat ambientLight[]   = {0.2f, 0.2f, 0.2f, 1.0f};
+  GLfloat diffuseLight[]   = {0.8f, 0.8f, 0.8f, 1.0f};
+  GLfloat spectularLight[] = {1.0f, 1.0f, 1.0f, 1.0f};
+  glLightfv(GL_LIGHT0, GL_AMBIENT, ambientLight);
+  glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuseLight);
+  glLightfv(GL_LIGHT0, GL_SPECULAR, spectularLight);
+
+  GLfloat lightPosition[] = {0.5f, 0.5f, 0.5f, 1.0f};
+  glLightfv(GL_LIGHT0, GL_POSITION, lightPosition);
+
+  glRotatef(angle, 0.0f, 0.5f, 1.0f);
 
   glColor3f(red, green, blue);
-  glBegin(GL_QUADS);
-    glVertex3f(-0.5f, -0.5f, 0.0f);
-    glVertex3f(-0.5f,  0.5f, 0.0f);
-    glVertex3f( 0.5f,  0.5f, 0.0f);
-    glVertex3f( 0.5f, -0.5f, 0.0f);
-  glEnd();
+  //glBegin(GL_QUADS);
+  //  glVertex3f(-0.5f, -0.5f, 0.0f);
+  //  glVertex3f(-0.5f,  0.5f, 0.0f);
+  //  glVertex3f( 0.5f,  0.5f, 0.0f);
+  //  glVertex3f( 0.5f, -0.5f, 0.0f);
+  //glEnd();
+  glutSolidCube(1.0f);
 
   angle += 0.1f;
 
